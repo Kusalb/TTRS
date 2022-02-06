@@ -24,8 +24,8 @@ Sc:Sign-in
 ![Screenshot from 2022-02-07 00-28-07](https://user-images.githubusercontent.com/16497084/152697114-84d4249e-3e65-4c41-a875-2388aa945134.png)
 Sc:Register
 ![Screenshot from 2022-02-07 00-28-59](https://user-images.githubusercontent.com/16497084/152697116-bab4b878-8fad-4e9d-a731-b91e770efcb8.png)
-Sc:
+Sc: Dashboard for admin
 ![Screenshot from 2022-02-07 00-29-08](https://user-images.githubusercontent.com/16497084/152697119-9db71331-748f-4490-b819-e6b5cfa2a797.png)
-Sc:
+Sc: List of fetched data
 ![Screenshot from 2022-02-07 00-30-23](https://user-images.githubusercontent.com/16497084/152697120-99c80d9c-7426-44c7-a320-91fadd21b426.png)
-Sc:
+Sc: Database
