@@ -25,6 +25,10 @@ Sc:Sign-in
 Sc:Register
 ![Screenshot from 2022-02-07 00-28-59](https://user-images.githubusercontent.com/16497084/152697116-bab4b878-8fad-4e9d-a731-b91e770efcb8.png)
 Sc: Dashboard for admin
+Refresh Table: It runs get_tourism_data which extracts the data from overpass-turbo to the database.
+
+Display Table: It shows the data stored on the database. The table can be queried with the help of a category.
+
 ![Screenshot from 2022-02-07 00-29-08](https://user-images.githubusercontent.com/16497084/152697119-9db71331-748f-4490-b819-e6b5cfa2a797.png)
 Sc: List of fetched data
 ![Screenshot from 2022-02-07 00-30-23](https://user-images.githubusercontent.com/16497084/152697120-99c80d9c-7426-44c7-a320-91fadd21b426.png)
