@@ -1,17 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html>
+<head><title>Table</title>
+    {% load staticfiles %}
+<link href="{% static '/style/css/bootstrap.min.css' %}" rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
- {% for i in accomodation %}
-     {{ i.name }}
-     {{ i.contact }}
-     {{ i.email }}
-     {{ i.contact }}
-     {{ i.latitude }}
-     {{ i.longitude }} <br>
-{% endfor %}
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">TTRS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                    </li>
+                    {% if user.is_admin %}
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="{% url 'get_tourism_data' %}">Refresh Table</a>
+                    </li>
+                        <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="{% url 'list_tourism_data' %}">Display table</a>
+                    </li>
+                    {% endif %}
+
+                </ul>
+                {% if request.path == '/' or request.path == '/sign_up'%}
+                    <form class="d-flex">
+                        <a href="{% url 'login' %}" class="btn btn-outline-success"> Sign in</a>
+                    </form>
+                {% endif %}
+                {% if request.path == '/login' %}
+                    <form class="d-flex">
+                        <a href="{% url 'sign_up' %}" class="btn btn-outline-success"> Register</a>
+                    </form>
+                {% endif %}
+
+            {% if request.path == '/admin_dashboard' or request.path == '/user_dashboard' %}
+                    <form class="d-flex">
+                        <a href="{% url 'signout' %}" class="btn btn-outline-success"> Logout</a>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+</header>
+<br>
+<br><br>
+
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Website</th>
+        <th>Opening Hrs</th>
+        <th>Longitude</th>
+        <th>Latitude</th>
+    </tr>
+
+    {% for i in tourism %}
+        <tr>
+        <td>{{ i.name }}</td>
+        <td>{{ i.contact }}</td>
+        <td>{{ i.email }}</td>
+        <td>{{ i.website }}</td>
+        <td>{{ i.opening_hours }}</td>
+        <td>{{ i.latitude }}</td>
+        <td>{{ i.longitude }}</td>
+    {% endfor %}
+    </tr>
+</table>
 </body>
 </html>

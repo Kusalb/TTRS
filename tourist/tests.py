@@ -5,7 +5,7 @@ from overpass import *
 
 
 api = overpy.Overpass()
-result = api.query(accommodation_query)
+result = api.query(tourism_query)
 accomodation_name =  list()
 accomodation_contact = list ()
 accomodation_email = list()
@@ -21,6 +21,7 @@ for node in result.nodes:  # from each node , get the all tags information
     except:
         name = node.tags["name"]=''
     accomodation_name.append(name)
+
     try:
         contact = node.tags["phone"]
     except:
@@ -63,9 +64,6 @@ for node in result.nodes:  # from each node , get the all tags information
     except:
         longitude= node.lon=''
     accomodation_longitude.append(longitude)
-    # if(name!=''):
-    #     data = Accomodation.objects.create(name=name, contact=contact, email=email, website=website, opening_hours=opening_hours, category=category,latitude=latitude, longitude= longitude  )
-    #     data.save()
 
 accommodation_data = []
 

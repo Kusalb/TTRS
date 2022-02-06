@@ -1,4 +1,4 @@
-accommodation_query = """
+tourism_query = """
 [out:json][timeout:25];
 area(3604583125)->.searchArea;
 (
@@ -10,4 +10,5 @@ out body;
 >;
 out skel qt;
 """
+
 
