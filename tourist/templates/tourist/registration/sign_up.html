@@ -1,0 +1,28 @@
+{% extends 'tourist/base.html' %}
+{% block content %}
+
+
+<main class="form-signin">
+        <form method="post" action="{% url 'sign_up' %}">{% csrf_token %}
+            <h1 class="h3 mb-3 fw-normal">Please sign Up</h1>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" placeholder="username" name="username">
+                <label for="floatingInput">Username</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                       name="password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <div class="form-floating">
+                 <select id="role" name="role" class="form-select">
+                        <option selected>Select Role:</option>
+                        <option value="is_admin">Admin</option>
+                        <option value="is_user">User</option>
+                    </select>
+            </div><br>
+
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        </form>
+    </main>
+{% endblock %}

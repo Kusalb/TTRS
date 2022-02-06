@@ -1,0 +1,60 @@
+<html>
+<head><title>Home</title></head>
+{% load staticfiles %}
+<link href="{% static '/style/css/bootstrap.min.css' %}" rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link href="{% static 'style/css/sign-in.css' %}" rel="stylesheet">
+
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">TTRS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                    </li>
+                    {% if user.is_admin %}
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="{% url 'get_tourism_data' %}">Refresh Table</a>
+                    </li>
+                        <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="{% url 'list_tourism_data' %}">Display table</a>
+                    </li>
+                    {% endif %}
+
+                </ul>
+                {% if request.path == '/' or request.path == '/sign_up'%}
+                    <form class="d-flex">
+                        <a href="{% url 'login' %}" class="btn btn-outline-success"> Sign in</a>
+                    </form>
+                {% endif %}
+                {% if request.path == '/login' %}
+                    <form class="d-flex">
+                        <a href="{% url 'sign_up' %}" class="btn btn-outline-success"> Register</a>
+                    </form>
+                {% endif %}
+
+            {% if request.path == '/admin_dashboard' or request.path == '/user_dashboard' %}
+                    <form class="d-flex">
+                        <a href="{% url 'signout' %}" class="btn btn-outline-success"> Logout</a>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+</header>
+<br>
+<br><br>
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>

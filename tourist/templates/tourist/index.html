@@ -1,0 +1,26 @@
+{% extends 'tourist/base.html' %}
+{% block content %}
+<main>
+    <div class="container">
+        <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+                <h1 class="display- fw-bold">What are you looking for?</h1>
+                <p class="col-md-12 fs-12"></p>
+                <form method="post" action="{% url 'category_filter' %}">{% csrf_token %}
+                    <label for="category">I am looking for: </label><br><br>
+                    <select id="category" name="category" class="form-select">
+                          <option selected>Open this select menu</option>
+                        <option value="guest_house">Guest House</option>
+                        <option value="hotel">Hotel</option>
+                        <option value="information">Information</option>
+                        <option value="artwork">Artwork</option>
+                        <option value="viewpoint">Viewpoint</option>
+                    </select>
+                    <br>
+                    <button class="btn btn-primary btn-lg" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
