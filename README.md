@@ -2,10 +2,7 @@
 KKL evaluation project.
 
 Clone the project. 
-Install the requirements by 
-pip install -r requirements.txt
-      3.   Set up the database named “ttrs”.
-      4.   Run the project.
+Start services - docker-compose up -d
 
 
 
