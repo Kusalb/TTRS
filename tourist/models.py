@@ -19,5 +19,5 @@ class Tourism(models.Model):
     address = models.CharField(max_length=255,null=True)
     longitude = models.DecimalField(max_digits=10, decimal_places=6,null=True)
     latitude = models.DecimalField(max_digits=10,decimal_places=6, null=True)
-    rating = models.FloatField()
+    rating = models.FloatField(null=True)
 
