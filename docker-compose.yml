@@ -7,7 +7,7 @@ services:
     environment:
       - POSTGRES_DB=ttrs
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=kusal
+      - POSTGRES_PASSWORD=
     ports:
       - "5432:5432"
   web:
