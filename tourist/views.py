@@ -97,7 +97,7 @@ def category_filter(request):
     if request.method == "POST":
         category = request.POST['category']
         tourism = Tourism.objects.filter(category=category)
-    return render(request, 'tourist/home.html', {'tourism': tourism})
+    return render(request, 'tourist/home.html', {'tourism': tourism, 'category':category})
 
 
 def sign_up(request):

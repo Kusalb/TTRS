@@ -21,18 +21,26 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
                     </li>
                     {% if user.is_admin %}
-                    <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{% url 'get_tourism_data' %}">Refresh Table</a>
-                    </li>
                         <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{% url 'list_tourism_data' %}">Display table</a>
-                    </li>
+                            <a class="nav-link " aria-current="page" href="{% url 'get_tourism_data' %}">Refresh
+                                Table</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="{% url 'list_tourism_data' %}">Display
+                                table</a>
+                        </li>
                     {% endif %}
 
                 </ul>
-                {% if request.path == '/' or request.path == '/sign_up'%}
+                {% if not user.is_active %}
+                    {% if request.path == '/' or request.path == '/sign_up' %}
+                        <form class="d-flex">
+                            <a href="{% url 'login' %}" class="btn btn-outline-success"> Sign in</a>
+                        </form>
+                    {% endif %}
+                {% else %}
                     <form class="d-flex">
-                        <a href="{% url 'login' %}" class="btn btn-outline-success"> Sign in</a>
+                        <a href="{% url 'signout' %}" class="btn btn-outline-success"> Sign out</a>
                     </form>
                 {% endif %}
                 {% if request.path == '/login' %}
@@ -40,8 +48,7 @@
                         <a href="{% url 'sign_up' %}" class="btn btn-outline-success"> Register</a>
                     </form>
                 {% endif %}
-
-            {% if request.path == '/admin_dashboard' or request.path == '/user_dashboard' %}
+                {% if request.path == '/admin_dashboard' or request.path == '/user_dashboard' %}
                     <form class="d-flex">
                         <a href="{% url 'signout' %}" class="btn btn-outline-success"> Logout</a>
                     </form>
